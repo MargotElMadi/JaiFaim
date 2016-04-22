@@ -1,9 +1,9 @@
 package com.margotelmadi.jaifaim.common.adapter;
-
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.margotelmadi.jaifaim.R;
@@ -35,9 +35,9 @@ public class RestoClickableAdapter extends RecyclerView.Adapter<RestoClickableAd
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Restaurant resto = mRestoList.get(position);
-        holder.mImageView.setBackgroundColor(resto.getImageResto());
-        holder.mNameTxv.setText(resto.getNomResto());
+        Restaurant restaurant = mRestoList.get(position);
+        holder.mImageView.setBackgroundColor(restaurant.getImageResto());
+        holder.mNomTxv.setText(restaurant.getNomResto());
     }
 
     @Override
@@ -48,12 +48,12 @@ public class RestoClickableAdapter extends RecyclerView.Adapter<RestoClickableAd
     public static class ViewHolder extends RecyclerView.ViewHolder implements View
             .OnClickListener, View.OnLongClickListener {
         private View mImageView;
-        private TextView mNameTxv;
+        private TextView mNomTxv;
 
         public ViewHolder(View v) {
             super(v);
             mImageView = v.findViewById(R.id.resto_img);
-            mNameTxv = (TextView) v.findViewById(R.id.resto_name);
+            mNomTxv = (TextView) v.findViewById(R.id.resto_name);
             v.setOnClickListener(this);
             v.setOnLongClickListener(this);
         }

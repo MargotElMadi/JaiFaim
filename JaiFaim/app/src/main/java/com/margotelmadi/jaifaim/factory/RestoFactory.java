@@ -1,5 +1,6 @@
 package com.margotelmadi.jaifaim.factory;
 
+import com.margotelmadi.jaifaim.R;
 import com.margotelmadi.jaifaim.model.Restaurant;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public class RestoFactory {
 
     public static List<Restaurant> getRestoList(){
         List<Restaurant> listResto = new ArrayList<>();
-        listResto.add(new Restaurant("Burger", 0));
+        listResto.add(new Restaurant("Burger", R.mipmap.ic_burger));
         listResto.add(new Restaurant("Pizza", 0));
         listResto.add(new Restaurant("Kebab", 0));
         listResto.add(new Restaurant("Italien", 0));

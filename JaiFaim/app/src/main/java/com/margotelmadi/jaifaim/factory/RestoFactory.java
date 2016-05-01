@@ -14,16 +14,15 @@ public class RestoFactory {
     public static List<Restaurant> getRestoList(){
         List<Restaurant> listResto = new ArrayList<>();
         listResto.add(new Restaurant("Burger", R.mipmap.ic_burger));
-        listResto.add(new Restaurant("Pizza", 0));
-        listResto.add(new Restaurant("Kebab", 0));
-        listResto.add(new Restaurant("Italien", 0));
-        listResto.add(new Restaurant("Indien", 0));
-        listResto.add(new Restaurant("Libanais", 0));
-        listResto.add(new Restaurant("Chinois", 0));
-        listResto.add(new Restaurant("Japonais", 0));
-        listResto.add(new Restaurant("Taï", 0));
-        listResto.add(new Restaurant("Oriental", 0));
-        listResto.add(new Restaurant("Pâtes", 0));
+        listResto.add(new Restaurant("Pizza", R.mipmap.ic_pizza));
+        listResto.add(new Restaurant("Kebab", R.mipmap.ic_kebab));
+        listResto.add(new Restaurant("Italien", R.mipmap.ic_italien));
+        listResto.add(new Restaurant("Indien", R.mipmap.ic_indien));
+        listResto.add(new Restaurant("Chinois", R.mipmap.ic_chinois));
+        listResto.add(new Restaurant("Japonais", R.mipmap.ic_japonais));
+        listResto.add(new Restaurant("Thaï", R.mipmap.ic_thai));
+        listResto.add(new Restaurant("Oriental", R.mipmap.ic_oriental));
+        listResto.add(new Restaurant("Pâtes", R.mipmap.ic_pates));
         return listResto;
     }
 }

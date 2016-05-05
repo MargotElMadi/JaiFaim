@@ -1,8 +1,14 @@
 <resources>
     <string name="app_name">J\'ai Faim</string>
 
+    <string name="preference_key_file">KEY</string>
+    <string name="preference_first_name_key_file"></string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="title_activity_recherche_resto">RechercheResto</string>
+    <string name="title_activity_resto_list">RestoListActivity</string>
+    <string name="title_activity_resto_detail">RestoDetailActivity</string>
 </resources>

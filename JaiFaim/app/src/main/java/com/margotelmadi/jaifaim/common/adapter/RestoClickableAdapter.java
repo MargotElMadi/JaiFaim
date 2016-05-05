@@ -1,5 +1,4 @@
 package com.margotelmadi.jaifaim.common.adapter;
-import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,7 +45,7 @@ public class RestoClickableAdapter extends RecyclerView.Adapter<RestoClickableAd
         return mRestoList.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder implements View
+    public class ViewHolder extends RecyclerView.ViewHolder implements View
             .OnClickListener, View.OnLongClickListener {
         private ImageView mImageView;
         private TextView mNomTxv;

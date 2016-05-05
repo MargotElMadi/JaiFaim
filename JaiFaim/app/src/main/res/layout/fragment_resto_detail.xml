@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="?android:attr/selectableItemBackground"
+              android:orientation="vertical"
+              android:gravity="center"
+              android:padding="8dp">
+
+        <TextView
+            android:id="@+id/resto_detail_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/secondary_text_light"
+            android:textSize="22sp"
+            android:textAlignment="center"
+            tools:text="Pizza" />
+
+        <TextView
+            android:id="@+id/resto_detail_km"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@android:color/secondary_text_light"
+            tools:text="12Km" />
+
+</LinearLayout>
+

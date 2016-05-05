@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.margotelmadi.jaifaim.R;
+import com.margotelmadi.jaifaim.model.LieuResto;
 import com.margotelmadi.jaifaim.model.Restaurant;
 
 public class RestoDetailActivity extends AppCompatActivity {
@@ -19,10 +20,10 @@ public class RestoDetailActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Restaurant restaurant = (Restaurant) getIntent().getExtras().getSerializable("resto");
+        LieuResto lieuResto = (LieuResto) getIntent().getExtras().getSerializable("resto");
 
         if(savedInstanceState == null){
-            RestoDetailFragment fragment = RestoDetailFragment.newInstance(restaurant);
+            RestoDetailFragment fragment = RestoDetailFragment.newInstance(lieuResto);
             android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.add(R.id.resto_detail_container, fragment);
             ft.commit();

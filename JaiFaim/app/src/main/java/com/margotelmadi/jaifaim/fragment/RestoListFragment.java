@@ -13,7 +13,9 @@ import android.view.ViewGroup;
 import com.margotelmadi.jaifaim.R;
 import com.margotelmadi.jaifaim.common.adapter.RestoAdapter;
 import com.margotelmadi.jaifaim.common.util.ItemClickSupport;
+import com.margotelmadi.jaifaim.factory.ListResto;
 import com.margotelmadi.jaifaim.factory.RestoFactory;
+import com.margotelmadi.jaifaim.model.LieuResto;
 import com.margotelmadi.jaifaim.model.Restaurant;
 
 import java.util.List;
@@ -24,7 +26,7 @@ import java.util.List;
 public class RestoListFragment extends Fragment {
 
     private RestoListFragmentCallback mCallback;
-    private List<Restaurant> mRestaurants;
+    private List<LieuResto> mLieuRestos;
     private RecyclerView mRecyclerView;
     private RestoAdapter mAdapter;
 
@@ -38,7 +40,7 @@ public class RestoListFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_resto_list, container, false);
 
-        mRestaurants = RestoFactory.getRestoList();
+        mLieuRestos = ListResto.getListRestoList();
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.resto_list_recycler);
 
         mRecyclerView.setHasFixedSize(false);
@@ -46,14 +48,14 @@ public class RestoListFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(layoutManager);
 
-        mAdapter = new RestoAdapter(mRestaurants);
+        mAdapter = new RestoAdapter(mLieuRestos);
         mRecyclerView.setAdapter(mAdapter);
 
 
         ItemClickSupport.addTo(mRecyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                mCallback.onRestoSelected(mRestaurants.get(position));
+                mCallback.onRestoSelected(mLieuRestos.get(position));
             }
         });
 
@@ -78,6 +80,6 @@ public class RestoListFragment extends Fragment {
     }
 
     public interface RestoListFragmentCallback {
-        void onRestoSelected(Restaurant restaurant);
+        void onRestoSelected(LieuResto lieuResto);
     }
 }

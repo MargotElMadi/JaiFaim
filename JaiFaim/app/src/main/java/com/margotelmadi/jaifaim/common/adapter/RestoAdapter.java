@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.margotelmadi.jaifaim.model.LieuResto;
 import com.margotelmadi.jaifaim.model.Restaurant;
 import com.margotelmadi.jaifaim.R;
 import java.util.List;
@@ -15,9 +16,9 @@ import java.util.List;
  */
     public class RestoAdapter extends RecyclerView.Adapter<RestoAdapter.ViewHolder> {
 
-    private List<Restaurant> mRestoList;
+    private List<LieuResto> mRestoList;
 
-    public RestoAdapter(List<Restaurant> restoList) {
+    public RestoAdapter(List<LieuResto> restoList) {
         mRestoList = restoList;
     }
 
@@ -30,10 +31,10 @@ import java.util.List;
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Restaurant restaurant = mRestoList.get(position);
+        LieuResto restaurant = mRestoList.get(position);
 
-        holder.mColorView.setBackgroundColor(restaurant.getImageResto());
-        holder.mFirstNameTxv.setText(restaurant.getNomResto());
+        holder.mNameTxv.setText(restaurant.getNomResto());
+        holder.mKmTxv.setText(restaurant.getKmResto());
     }
 
     @Override
@@ -42,18 +43,18 @@ import java.util.List;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private View mColorView;
-        private TextView mFirstNameTxv;
+        private TextView mNameTxv;
+        private TextView mKmTxv;
 
         public ViewHolder(View v) {
             super(v);
-            mColorView = v.findViewById(R.id.resto_img);
-            mFirstNameTxv = (TextView) v.findViewById(R.id.resto_name);
+            mNameTxv = (TextView) v.findViewById(R.id.resto_name);
+            mKmTxv = (TextView) v.findViewById(R.id.resto_name);
         }
 
         public void bind(Restaurant restaurant) {
-            mColorView.setBackgroundColor(restaurant.getImageResto());
-            mFirstNameTxv.setText(restaurant.getNomResto());
+            mNameTxv.setText(restaurant.getNomResto());
+            mKmTxv.setText(restaurant.getNomResto());
         }
     }
 }

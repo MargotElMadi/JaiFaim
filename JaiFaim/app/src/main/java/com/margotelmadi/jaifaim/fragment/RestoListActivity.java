@@ -8,10 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.margotelmadi.jaifaim.R;
 import com.margotelmadi.jaifaim.model.LieuResto;
-import com.margotelmadi.jaifaim.model.Restaurant;
+import com.margotelmadi.jaifaim.R;
 
+/**
+ * Created by margotelmadi on 06/05/2016.
+ */
 public class RestoListActivity extends AppCompatActivity implements RestoListFragment.RestoListFragmentCallback {
 
     private boolean mTowPanes;
@@ -23,7 +25,7 @@ public class RestoListActivity extends AppCompatActivity implements RestoListFra
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        if(findViewById(R.id.resto_detail_container) != null){
+        if(findViewById(R.id.person_detail_container) != null){
             mTowPanes = true;
         }
 
@@ -39,16 +41,17 @@ public class RestoListActivity extends AppCompatActivity implements RestoListFra
     }
 
     @Override
-    public void onRestoSelected(LieuResto lieuRestaurant) {
+    public void onRestoSelected(LieuResto lieuResto) {
         if(mTowPanes){
-            RestoDetailFragment fragment = RestoDetailFragment.newInstance(lieuRestaurant);
+            RestoDetailFragment fragment = RestoDetailFragment.newInstance(lieuResto);
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.resto_detail_container, fragment)
+                    .replace(R.id.person_detail_container, fragment)
                     .commit();
         }else{
             Intent intent = new Intent(this, RestoDetailActivity.class);
-            intent.putExtra("resto", lieuRestaurant);
+            intent.putExtra("resto", lieuResto);
             startActivity(intent);
         }
     }
+
 }

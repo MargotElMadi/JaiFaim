@@ -14,7 +14,7 @@
 
 
     <fragment
-        android:id="@+id/person_list_fragment"
+        android:id="@+id/resto_list_fragment"
         android:name="com.margotelmadi.jaifaim.fragment.RestoListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

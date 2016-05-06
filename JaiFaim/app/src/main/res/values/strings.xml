@@ -11,4 +11,9 @@
     <string name="title_activity_recherche_resto">RechercheResto</string>
     <string name="title_activity_resto_list">RestoListActivity</string>
     <string name="title_activity_resto_detail">RestoDetailActivity</string>
+    <string name="title_activity_recherche">RechercheActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_resto_view_pager">RestoViewPagerActivity</string>
 </resources>

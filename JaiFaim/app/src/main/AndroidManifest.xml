@@ -19,13 +19,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".fragment.RestoListActivity"
-            android:label="@string/title_activity_resto_list"
+            android:name=".recherche.RechercheActivity"
+            android:label="@string/title_activity_recherche"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".fragment.RestoDetailActivity"
-            android:label="@string/title_activity_resto_detail"
+            android:name=".fragment.RestoViewPagerActivity"
+            android:label="@string/title_activity_resto_view_pager"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>

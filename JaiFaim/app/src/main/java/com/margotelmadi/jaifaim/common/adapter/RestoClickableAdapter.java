@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.margotelmadi.jaifaim.R;
 import com.margotelmadi.jaifaim.common.listener.OnRecyclerItemClickListener;
+import com.margotelmadi.jaifaim.factory.ListResto;
 import com.margotelmadi.jaifaim.model.Restaurant;
 
 import java.util.List;

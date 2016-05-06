@@ -1,5 +1,7 @@
 package com.margotelmadi.jaifaim.fragment;
 
+import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,11 +11,7 @@ import android.widget.TextView;
 
 import com.margotelmadi.jaifaim.R;
 import com.margotelmadi.jaifaim.model.LieuResto;
-import com.margotelmadi.jaifaim.model.Restaurant;
 
-/**
- * Created by margotelmadi on 05/05/2016.
- */
 public class RestoDetailFragment extends Fragment {
     private static final String ARG_RESTO = "resto";
 
@@ -46,7 +44,7 @@ public class RestoDetailFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_resto_detail, container, false);
 
-        TextView nameTxv = (TextView) rootView.findViewById(R.id.resto_name);
+        TextView nameTxv = (TextView) rootView.findViewById(R.id.resto_detail_name);
         TextView kmTxv = (TextView) rootView.findViewById(R.id.resto_detail_km);
 
         nameTxv.setText(mLieuResto.getNomResto());

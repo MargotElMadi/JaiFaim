@@ -20,6 +20,7 @@ import com.margotelmadi.jaifaim.factory.RestoFactory;
 import com.margotelmadi.jaifaim.fragment.RestoDetailActivity;
 import com.margotelmadi.jaifaim.fragment.RestoListActivity;
 import com.margotelmadi.jaifaim.model.Restaurant;
+import com.margotelmadi.jaifaim.R;
 
 import java.util.List;
 
@@ -117,7 +118,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onClick(View view, int position, boolean isLongClick) {
-        Intent intent = new Intent(MainActivity.this, RestoDetailActivity.class);
+        Intent intent = new Intent(MainActivity.this, RestoListActivity.class);
         startActivity(intent);
     }
 }

@@ -1,30 +1,24 @@
 package com.margotelmadi.jaifaim.fragment;
 
-import android.annotation.TargetApi;
-import android.app.Fragment;
 import android.content.Context;
-import android.os.Build;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.margotelmadi.jaifaim.R;
 import com.margotelmadi.jaifaim.common.adapter.RestoAdapter;
 import com.margotelmadi.jaifaim.common.util.ItemClickSupport;
 import com.margotelmadi.jaifaim.factory.ListResto;
-import com.margotelmadi.jaifaim.factory.RestoFactory;
 import com.margotelmadi.jaifaim.model.LieuResto;
-import com.margotelmadi.jaifaim.model.Restaurant;
 
 import java.util.List;
 
-/**
- * Created by margotelmadi on 05/05/2016.
- */
 public class RestoListFragment extends Fragment {
-
     private RestoListFragmentCallback mCallback;
     private List<LieuResto> mLieuRestos;
     private RecyclerView mRecyclerView;
@@ -34,7 +28,6 @@ public class RestoListFragment extends Fragment {
 
     }
 
-    @TargetApi(Build.VERSION_CODES.M)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

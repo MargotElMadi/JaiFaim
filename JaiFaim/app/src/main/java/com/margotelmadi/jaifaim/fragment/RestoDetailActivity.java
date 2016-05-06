@@ -7,10 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.margotelmadi.jaifaim.R;
 import com.margotelmadi.jaifaim.model.LieuResto;
-import com.margotelmadi.jaifaim.model.Restaurant;
+import com.margotelmadi.jaifaim.R;
 
+/**
+ * Created by margotelmadi on 06/05/2016.
+ */
 public class RestoDetailActivity extends AppCompatActivity {
 
     @Override
@@ -40,5 +42,4 @@ public class RestoDetailActivity extends AppCompatActivity {
             }
         });
     }
-
 }

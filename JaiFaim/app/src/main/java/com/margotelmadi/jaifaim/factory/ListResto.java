@@ -15,7 +15,7 @@ public class ListResto {
     public static List<LieuResto> getListRestoList(){
         List<LieuResto> listResto = new ArrayList<>();
         listResto.add(new LieuResto("Burger", "1,4Km"));
-        listResto.add(new LieuResto("Pizza", "3,2Km"));
+        listResto.add(new LieuResto("Burger", "3,2Km"));
         return listResto;
     }
 }

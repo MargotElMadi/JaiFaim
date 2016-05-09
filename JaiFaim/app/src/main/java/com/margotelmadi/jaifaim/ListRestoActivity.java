@@ -20,7 +20,9 @@ import android.widget.TextView;
 
 import com.margotelmadi.jaifaim.common.listener.OnRecyclerItemClickListener;
 import com.margotelmadi.jaifaim.factory.ListResto;
+import com.margotelmadi.jaifaim.factory.RestoFactory;
 import com.margotelmadi.jaifaim.model.LieuResto;
+import com.margotelmadi.jaifaim.model.Restaurant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +39,10 @@ public class ListRestoActivity extends AppCompatActivity implements NavigationVi
         setSupportActionBar(toolbar);
 
         //Recherche resto
-        int j = 0;
+        String typeResto = getIntent().getExtras().getString("positionClick");
+        //Retourne type resto cliqué
+        getTypeResto(typeResto);
+
 
         //Affichage liste
         mLieuResto = ListResto.getListRestoList();
@@ -71,5 +76,15 @@ public class ListRestoActivity extends AppCompatActivity implements NavigationVi
 
     }
 
+    public String getTypeResto(String position){
+        int posi = Integer.parseInt(position);
+        String typeResto = "";
+        for(int i = 0; i < RestoFactory.getRestoList().size(); i ++){
+            if(posi == i){
+                typeResto = RestoFactory.getRestoList().get(i).getNomResto();
+            }
+        }
+        return typeResto;
+    }
 
 }

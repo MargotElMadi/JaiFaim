@@ -21,3 +21,12 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+signingConfigs {
+    release {
+        storeFile file(project.file("MyKeyStore.jks"))
+        storePassword "123456"
+        keyAlias "JaiFaim2"
+        keyPassword "123456"
+    }
+}

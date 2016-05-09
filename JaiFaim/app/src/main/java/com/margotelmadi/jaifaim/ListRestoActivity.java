@@ -29,27 +29,6 @@ public class ListRestoActivity extends AppCompatActivity implements NavigationVi
 
     private List<LieuResto> mLieuResto;
 
-    private SensorManager mSensorManager;
-    private Sensor mSensorAccelerometre;
-
-    private final SensorEventListener mSensorEventListener = new SensorEventListener() {
-        @Override
-        public void onSensorChanged(SensorEvent event) {
-            Sensor mySensor = event.sensor;
-
-            if(mySensor.getType() ==  Sensor.TYPE_ACCELEROMETER){
-                float x = event.values[0];
-                float y = event.values[1];
-                float z = event.values[2];
-            }
-        }
-
-        @Override
-        public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
-        }
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,8 +37,6 @@ public class ListRestoActivity extends AppCompatActivity implements NavigationVi
         setSupportActionBar(toolbar);
 
         //Recherche resto
-        mSensorManager = (SensorManager)getSystemService(Context.SENSOR_SERVICE);
-        mSensorAccelerometre = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
 
         //Affichage liste
@@ -94,33 +71,5 @@ public class ListRestoActivity extends AppCompatActivity implements NavigationVi
 
     }
 
-    @Override
-    protected void onPause(){
-        super.onPause();
-        mSensorManager.unregisterListener(mSensorEventListener);
-    }
-
-    @Override
-    protected void onResume(){
-        super.onResume();
-        mSensorManager.registerListener(mSensorEventListener, mSensorAccelerometre, SensorManager.SENSOR_DELAY_NORMAL);
-    }
-
-    public void displayAllSensors(){
-        List<Sensor> sensorList = mSensorManager.getSensorList(Sensor.TYPE_ALL);
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(getSensorListString(sensorList)).setPositiveButton("OK", null);
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
-
-    private String getSensorListString(List<Sensor> sensorList) {
-        StringBuilder sensorListString = new StringBuilder();
-        for (Sensor sensor : sensorList){
-            sensorListString.append(sensor.getName()).append("\n");
-            sensorListString.append(sensor.getVendor()).append("\n");
-            sensorListString.append(sensor.getVersion()).append("\n");
-        }
-        return sensorListString.toString();
-    }
+    
 }

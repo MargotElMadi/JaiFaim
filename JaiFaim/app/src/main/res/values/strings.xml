@@ -18,6 +18,9 @@
     <string name="title_activity_resto_view_pager">RestoViewPagerActivity</string>
     <string name="title_activity_list_resto">ListRestoActivity</string>
 
+
+    <string name="title_activity_maps">Google Maps</string>
+
     <string name="connection_location_failed">Connection localisation échouée</string>
     <string name="no_location_detected">Location non détectée</string>
 

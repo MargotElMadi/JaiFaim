@@ -28,6 +28,11 @@
             android:label="@string/title_activity_resto_view_pager"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+            android:name=".ListRestoActivity"
+            android:label="@string/title_activity_list_resto"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

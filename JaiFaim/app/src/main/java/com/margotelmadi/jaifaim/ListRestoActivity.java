@@ -37,7 +37,7 @@ public class ListRestoActivity extends AppCompatActivity implements NavigationVi
         setSupportActionBar(toolbar);
 
         //Recherche resto
-
+        int j = 0;
 
         //Affichage liste
         mLieuResto = ListResto.getListRestoList();
@@ -71,5 +71,5 @@ public class ListRestoActivity extends AppCompatActivity implements NavigationVi
 
     }
 
-    
+
 }

@@ -25,16 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".recherche.RechercheActivity"
-            android:label="@string/title_activity_recherche"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
-            android:name=".fragment.RestoViewPagerActivity"
-            android:label="@string/title_activity_resto_view_pager"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+
         <activity
             android:name=".ListRestoActivity"
             android:label="@string/title_activity_list_resto"
@@ -56,8 +47,10 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps">
         </activity>
+
+
     </application>
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
 
 </manifest>

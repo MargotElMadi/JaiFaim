@@ -1,33 +1,21 @@
 package com.margotelmadi.jaifaim;
 
-import android.app.AlertDialog;
-import android.content.Context;
 import android.content.pm.PackageManager;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 import android.location.Location;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.Api;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.PendingResult;
-import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
@@ -35,24 +23,20 @@ import com.margotelmadi.jaifaim.common.listener.OnRecyclerItemClickListener;
 import com.margotelmadi.jaifaim.factory.ListResto;
 import com.margotelmadi.jaifaim.factory.RestoFactory;
 import com.margotelmadi.jaifaim.model.LieuResto;
-import com.margotelmadi.jaifaim.model.Restaurant;
-
-import java.io.FileDescriptor;
-import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-import java.util.jar.Manifest;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 public class ListRestoActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, OnRecyclerItemClickListener,
         GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener{
 
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 1;
 
-    //@Bind(R.id.toolbar)
+    @Bind(R.id.toolbar)
     Toolbar mToolbar;
     private List<LieuResto> mLieuResto;
     private GoogleApiClient mGoogleApiClient;
@@ -64,8 +48,9 @@ public class ListRestoActivity extends AppCompatActivity implements NavigationVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_resto);
+
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //ButterKnife.bind(this);
+        ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
 
         //Recherche resto

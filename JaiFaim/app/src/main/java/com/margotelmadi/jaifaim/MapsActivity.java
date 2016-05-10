@@ -18,11 +18,13 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 1;
-    //@Bind(R.id.toolbar)
+    @Bind(R.id.toolbar)
     Toolbar mToolbar;
     private GoogleMap mMap;
     private LocationRequest mLocationRequest;
@@ -32,7 +34,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-        //ButterKnife.bind(this);
+        ButterKnife.bind(this);
         //setSupportActionBar(mToolbar);
         //assert getSupportActionBar() != null;
         //getSupportActionBar().setDisplayHomeAtUpEnabled(true);

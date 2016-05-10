@@ -181,7 +181,9 @@ public class ListRestoActivity extends AppCompatActivity implements NavigationVi
         Uri gmmIntentUri = Uri.parse("geo:0,0?q="+typeResto);
 
         // Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
-        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        //Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        Intent mapIntent = new Intent(ListRestoActivity.this, MapsActivity.class);
+
         // Make the Intent explicit by setting the Google Maps package
         mapIntent.setPackage("com.google.android.apps.maps");
 

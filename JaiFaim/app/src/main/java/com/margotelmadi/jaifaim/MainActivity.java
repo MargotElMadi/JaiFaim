@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onClick(View view, int position, boolean isLongClick) {
-        Intent intent = new Intent(MainActivity.this, ListRestoActivity.class);
+        Intent intent = new Intent(MainActivity.this, MapsResultActivity.class);
         intent.putExtra("positionClick", position+"");
         startActivity(intent);
     }

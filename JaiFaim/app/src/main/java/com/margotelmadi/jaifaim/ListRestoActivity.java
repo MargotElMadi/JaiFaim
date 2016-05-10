@@ -53,7 +53,7 @@ public class ListRestoActivity extends AppCompatActivity implements NavigationVi
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 1;
 
     //@Bind(R.id.toolbar)
-    Toolbar mToolbar;
+    //Toolbar mToolbar;
     private List<LieuResto> mLieuResto;
     private GoogleApiClient mGoogleApiClient;
     private LocationRequest mLocationRequest;
@@ -64,9 +64,9 @@ public class ListRestoActivity extends AppCompatActivity implements NavigationVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_resto);
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //ButterKnife.bind(this);
-        setSupportActionBar(mToolbar);
+        setSupportActionBar(toolbar);
 
         //Recherche resto
         String typeResto = getIntent().getExtras().getString("positionClick");

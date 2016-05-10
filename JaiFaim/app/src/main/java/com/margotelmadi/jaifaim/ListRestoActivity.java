@@ -46,10 +46,14 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.jar.Manifest;
 
+
 public class ListRestoActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, OnRecyclerItemClickListener,
         GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener{
 
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 1;
+
+    //@Bind(R.id.toolbar)
+    Toolbar mToolbar;
     private List<LieuResto> mLieuResto;
     private GoogleApiClient mGoogleApiClient;
     private LocationRequest mLocationRequest;
@@ -60,8 +64,9 @@ public class ListRestoActivity extends AppCompatActivity implements NavigationVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_resto);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //ButterKnife.bind(this);
+        setSupportActionBar(mToolbar);
 
         //Recherche resto
         String typeResto = getIntent().getExtras().getString("positionClick");
@@ -69,7 +74,6 @@ public class ListRestoActivity extends AppCompatActivity implements NavigationVi
         getTypeResto(typeResto);
 
         //gestion position courante
-        setSupportActionBar(toolbar);
         assert getActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

@@ -6,7 +6,8 @@ import android.location.LocationListener;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.Toolbar;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -21,7 +22,7 @@ import com.google.android.gms.maps.model.LatLng;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 1;
     @Bind(R.id.toolbar)
@@ -35,9 +36,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         ButterKnife.bind(this);
+
         //setSupportActionBar(mToolbar);
-        //assert getSupportActionBar() != null;
-        //getSupportActionBar().setDisplayHomeAtUpEnabled(true);
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
 
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.

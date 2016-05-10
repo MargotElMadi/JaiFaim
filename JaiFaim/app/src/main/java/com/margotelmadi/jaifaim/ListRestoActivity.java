@@ -38,6 +38,9 @@ public class ListRestoActivity extends AppCompatActivity implements NavigationVi
 
     @Bind(R.id.toolbar)
     Toolbar mToolbar;
+    @Bind(R.id.my_list)
+    ListView listView;
+
     private List<LieuResto> mLieuResto;
     private GoogleApiClient mGoogleApiClient;
     private LocationRequest mLocationRequest;
@@ -51,6 +54,8 @@ public class ListRestoActivity extends AppCompatActivity implements NavigationVi
 
         ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
+        assert getActionBar() != null;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //Recherche resto
         String typeResto = getIntent().getExtras().getString("positionClick");
@@ -58,14 +63,11 @@ public class ListRestoActivity extends AppCompatActivity implements NavigationVi
         getTypeResto(typeResto);
 
         //gestion position courante
-        assert getActionBar() != null;
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         buildGoogleApiClient();
 
         //Affichage liste
         mLieuResto = ListResto.getListRestoList();
-        final ListView listView = (ListView) findViewById(R.id.my_list);
+        //final ListView listView = (ListView) findViewById(R.id.my_list);
         final List<String> stringList = new ArrayList<>();
         for(int i = 0; i < mLieuResto.size(); i++){
             stringList.add(mLieuResto.get(i).getNomResto() + " : " + mLieuResto.get(i).getKmResto() + " Km");

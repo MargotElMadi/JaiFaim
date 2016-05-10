@@ -1,7 +1,9 @@
 package com.margotelmadi.jaifaim;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -46,6 +48,7 @@ public class ListRestoActivity extends AppCompatActivity implements NavigationVi
     private LocationRequest mLocationRequest;
     private Location mCurrentLocation;
     private String mLastUpdateTime;
+    private String typeResto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +61,7 @@ public class ListRestoActivity extends AppCompatActivity implements NavigationVi
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //Recherche resto
-        String typeResto = getIntent().getExtras().getString("positionClick");
+        typeResto = getIntent().getExtras().getString("positionClick");
         //Retourne type resto cliqué
         getTypeResto(typeResto);
 
@@ -67,7 +70,6 @@ public class ListRestoActivity extends AppCompatActivity implements NavigationVi
 
         //Affichage liste
         mLieuResto = ListResto.getListRestoList();
-        //final ListView listView = (ListView) findViewById(R.id.my_list);
         final List<String> stringList = new ArrayList<>();
         for(int i = 0; i < mLieuResto.size(); i++){
             stringList.add(mLieuResto.get(i).getNomResto() + " : " + mLieuResto.get(i).getKmResto() + " Km");
@@ -175,7 +177,16 @@ public class ListRestoActivity extends AppCompatActivity implements NavigationVi
 
     @Override
     public void onClick(View view, int position, boolean isLongClick) {
+        // Create a Uri from an intent string. Use the result to create an Intent.
+        Uri gmmIntentUri = Uri.parse("geo:0,0?q="+typeResto);
 
+        // Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        // Make the Intent explicit by setting the Google Maps package
+        mapIntent.setPackage("com.google.android.apps.maps");
+
+        // Attempt to start an activity that can handle the Intent
+        startActivity(mapIntent);
     }
 
     public String getTypeResto(String position){

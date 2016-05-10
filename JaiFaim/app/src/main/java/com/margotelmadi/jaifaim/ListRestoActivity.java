@@ -49,11 +49,8 @@ public class ListRestoActivity extends AppCompatActivity implements NavigationVi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_resto);
 
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
-        //ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
 
         //Recherche resto
         String typeResto = getIntent().getExtras().getString("positionClick");

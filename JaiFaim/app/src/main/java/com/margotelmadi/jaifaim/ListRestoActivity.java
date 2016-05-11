@@ -60,9 +60,9 @@ public class ListRestoActivity extends AppCompatActivity implements NavigationVi
         assert getActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //Recherche resto
-        typeResto = getIntent().getExtras().getString("positionClick");
+
         //Retourne type resto cliqué
+        typeResto = getIntent().getExtras().getString("positionClick");
         getTypeResto(typeResto);
 
         //gestion position courante

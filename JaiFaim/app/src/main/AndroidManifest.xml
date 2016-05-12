@@ -45,29 +45,25 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".ListRestoActivity"
-            android:label="@string/title_activity_list_resto"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-
 
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps">
 
-            <meta-data
-                android:name="com.google.android.geo.API_KEY"
-                android:value="AIzaSyASsgMN5q1S-Fce5JVgziLPJYA-UNl8yPw"/>
 
+<!--
             <meta-data
                 android:name="com.google.android.maps.v2.API_KEY"
-                android:value="AIzaSyASsgMN5q1S-Fce5JVgziLPJYA-UNl8yPw" />
+                android:value="AIzaSyBP4ywJu-s4GSYKqBUZayQ2ft5VA3N7hl4" />
             <meta-data
                 android:name="com.google.android.gms.version"
                 android:value="@integer/google_play_services_version" />
+                -->
         </activity>
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

@@ -1,6 +1,7 @@
 package com.margotelmadi.jaifaim;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,6 +19,7 @@ import com.margotelmadi.jaifaim.common.adapter.RestoClickableAdapter;
 import com.margotelmadi.jaifaim.common.listener.OnRecyclerItemClickListener;
 import com.margotelmadi.jaifaim.factory.RestoFactory;
 import com.margotelmadi.jaifaim.model.Restaurant;
+import com.margotelmadi.jaifaim.service.LocationService;
 
 import java.util.List;
 
@@ -121,8 +123,27 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onClick(View view, int position, boolean isLongClick) {
-        Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-        intent.putExtra("positionClick", position+"");
-        startActivity(intent);
+        /*Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+        intent.putExtra("positionClick", position + "");
+        startActivity(intent);*/
+        LocationService locationService = new LocationService(getApplicationContext());
+
+        String typeResto = getTypeRestoClick(position);
+
+        Uri gmmIntentUri = Uri.parse("geo:" + locationService.getLatitude() + "," + locationService.getLongitude() + "?q=restaurant " +typeResto);
+        //Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        Intent mapIntent = new Intent(Intent.ACTION_SEARCH, gmmIntentUri, MainActivity.this, MapsActivity.class);
+        mapIntent.setPackage("com.google.android.apps.maps");
+        startActivity(mapIntent);
+    }
+
+    public String getTypeRestoClick( int position){
+        String type = "";
+        for(int i = 0; i < RestoFactory.getRestoList().size(); i ++){
+            if(i == position){
+                type = RestoFactory.getRestoList().get(i).getNomResto();
+            }
+        }
+        return type;
     }
 }

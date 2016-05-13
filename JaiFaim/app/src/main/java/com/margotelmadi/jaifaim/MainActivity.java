@@ -21,20 +21,25 @@ import com.margotelmadi.jaifaim.model.Restaurant;
 
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnRecyclerItemClickListener {
 
+    @Bind(R.id.toolbar)
+    private Toolbar mToolbar;
     private List<Restaurant> mRestoList;
+    @Bind(R.id.my_recycler_view)
     private RecyclerView mRecyclerView;
     private RestoClickableAdapter mAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-
-        mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+        ButterKnife.bind(this);
 
         mRecyclerView.setHasFixedSize(false);
 
@@ -48,7 +53,7 @@ public class MainActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 

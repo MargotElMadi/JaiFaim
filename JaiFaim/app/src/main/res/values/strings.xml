@@ -24,4 +24,5 @@
     <string name="connection_location_failed">Connection localisation échouée</string>
     <string name="no_location_detected">Location non détectée</string>
 
+
 </resources>

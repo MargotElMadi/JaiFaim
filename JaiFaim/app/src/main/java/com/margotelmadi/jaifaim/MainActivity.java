@@ -21,6 +21,9 @@ import com.margotelmadi.jaifaim.model.Restaurant;
 
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnRecyclerItemClickListener {
 
@@ -28,12 +31,15 @@ public class MainActivity extends AppCompatActivity
     private RecyclerView mRecyclerView;
     private RestoClickableAdapter mAdapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
+        ButterKnife.bind(this);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
         mRecyclerView.setHasFixedSize(false);
@@ -115,7 +121,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onClick(View view, int position, boolean isLongClick) {
-        Intent intent = new Intent(MainActivity.this, ListRestoActivity.class);
+        Intent intent = new Intent(MainActivity.this, MapsActivity.class);
         intent.putExtra("positionClick", position+"");
         startActivity(intent);
     }

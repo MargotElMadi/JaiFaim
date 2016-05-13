@@ -8,11 +8,24 @@ import java.io.Serializable;
 public class LieuResto implements Serializable {
 
     private String mNomResto;
-    private String mkmResto;
+    private String mTypeResto;
+    private double mLatitude;
+    private double mLongitude;
 
-    public LieuResto(String nomResto, String kmResto){
+    public LieuResto(String typeResto, String nomResto, double latitude, double longitude){
+        this.mTypeResto = typeResto;
         this.mNomResto = nomResto;
-        this.mkmResto = kmResto;
+        this.mLatitude = latitude;
+        this.mLongitude = longitude;
+    }
+
+
+    public String getTypeResto() {
+        return mTypeResto;
+    }
+
+    public void setTypeResto(String typeResto) {
+        mTypeResto = typeResto;
     }
 
     public String getNomResto() {
@@ -23,11 +36,19 @@ public class LieuResto implements Serializable {
         mNomResto = nomResto;
     }
 
-    public String getKmResto() {
-        return mkmResto;
+    public double getLatitude() {
+        return mLatitude;
     }
 
-    public void setKmResto(String mkmResto) {
-        this.mkmResto = mkmResto;
+    public void setLatitude(double latitude) {
+        mLatitude = latitude;
+    }
+
+    public double getLongitude() {
+        return mLongitude;
+    }
+
+    public void setLongitude(double longitude) {
+        mLongitude = longitude;
     }
 }

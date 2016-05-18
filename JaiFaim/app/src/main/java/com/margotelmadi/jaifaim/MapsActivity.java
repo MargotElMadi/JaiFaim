@@ -11,6 +11,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -71,10 +72,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         for(int i = 0; i < ListResto.getListRestoList().size(); i++){
             if(ListResto.getListRestoList().get(i).getTypeResto() == mTypeResto){
                 LatLng latLng = new LatLng(ListResto.getListRestoList().get(i).getLatitude(), ListResto.getListRestoList().get(i).getLongitude());
-                map.addMarker(new MarkerOptions()
+                Marker monMarker = map.addMarker(new MarkerOptions()
                         .position(latLng)
                         .title(ListResto.getListRestoList().get(i).getNomResto())
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+                monMarker.showInfoWindow();
             }
         }
 

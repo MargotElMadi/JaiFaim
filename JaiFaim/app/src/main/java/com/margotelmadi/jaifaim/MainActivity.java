@@ -19,12 +19,9 @@ import com.margotelmadi.jaifaim.common.adapter.RestoClickableAdapter;
 import com.margotelmadi.jaifaim.common.listener.OnRecyclerItemClickListener;
 import com.margotelmadi.jaifaim.factory.RestoFactory;
 import com.margotelmadi.jaifaim.model.Restaurant;
-import com.margotelmadi.jaifaim.service.LocationService;
 
 import java.util.List;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnRecyclerItemClickListener {
@@ -39,20 +36,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ButterKnife.bind(this);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
-
-        mRecyclerView.setHasFixedSize(false);
-
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(layoutManager);
-
-        mRestoList = RestoFactory.getRestoList();
-        mAdapter = new RestoClickableAdapter(mRestoList, this);
-        mRecyclerView.setAdapter(mAdapter);
-
+        setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -62,6 +47,16 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+        mRecyclerView.setHasFixedSize(false);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(layoutManager);
+        mRestoList = RestoFactory.getRestoList();
+        mAdapter = new RestoClickableAdapter(mRestoList, this);
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     @Override
@@ -101,19 +96,17 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        Intent intent = new Intent(MainActivity.this, MapsActivity.class);
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.nav_burger) {
+            intent.putExtra("positionClick", 0 + "");
+            startActivity(intent);
+        } else if (id == R.id.nav_pizza) {
+            intent.putExtra("positionClick", 1 + "");
+            startActivity(intent);
+        } else if (id == R.id.nav_kebab) {
+            intent.putExtra("positionClick", 2 + "");
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -128,4 +121,5 @@ public class MainActivity extends AppCompatActivity
         startActivity(intent);
 
     }
+
 }
